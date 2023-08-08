@@ -1,6 +1,6 @@
 import FeedItem from "@/components/feedItem/FeedItem";
 import getFeed from "@/utils/getFeed";
-import { Navbar, NavbarBrand } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import Head from "next/head";
 import useSWR from "swr";
 
@@ -16,7 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar className="h-15">
-        <NavbarBrand><h1 className="text-xl">redou</h1></NavbarBrand>
+          <NavbarBrand>
+            <h1 className="text-xl">redou</h1>
+          </NavbarBrand>
       </Navbar>
       <main>
         {data?.map(
