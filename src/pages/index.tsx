@@ -19,7 +19,7 @@ export default function Home() {
       {isLoading &&
         Array(10)
           .fill(0)
-          .map(() => <FeedItemSkeleton />)}
+          .map((_, i) => <FeedItemSkeleton key={i + "_skeleton"} />)}
       {!isLoading &&
         data?.map(
           (

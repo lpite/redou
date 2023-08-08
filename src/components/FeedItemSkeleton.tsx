@@ -31,7 +31,7 @@ export default function FeedItemSkeleton() {
           {Array(4)
             .fill(0)
             .map((_, i) => (
-              <Skeleton className="rounded-xl">
+              <Skeleton key={i + "_skeleton_chip"} className="rounded-xl">
                 <Chip className="mr-1" key={i}>
                   tag
                 </Chip>
