@@ -7,6 +7,7 @@ import {
   CardHeader,
   Chip,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function FeedItem({
   title,
@@ -21,20 +22,20 @@ export default function FeedItem({
   return (
     <Card className="m-4">
       <CardHeader className="px-5">
-        <h2 className="font-bold">{title}</h2>
+        <h2 className="font-bold">
+          <Link href="/">{title}</Link>
+        </h2>
       </CardHeader>
       <CardBody>
         <p>{text}</p>
       </CardBody>
       <CardFooter className="flex flex-col justify-start items-start">
-        <div className="my-1">
-          <Chip className="mr-2" color="primary">
+        <div className="flex my-1 gap-2 flex-wrap">
+          <Chip className="mr-1" color="primary">
             {topic}
           </Chip>
           {tags.map((tag) => (
-            <Chip key={tag} className="mr-2">
-              {tag}
-            </Chip>
+            <Chip key={tag}>{tag}</Chip>
           ))}
         </div>
         <div className="my-2">

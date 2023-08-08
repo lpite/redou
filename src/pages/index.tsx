@@ -1,4 +1,4 @@
-import FeedItem from "@/components/feedItem/FeedItem";
+import FeedItem from "@/components/FeedItem";
 import getFeed from "@/utils/getFeed";
 import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
 import Head from "next/head";
@@ -15,11 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar className="h-15">
-          <NavbarBrand>
-            <h1 className="text-xl">redou</h1>
-          </NavbarBrand>
-      </Navbar>
+      
       <main>
         {data?.map(
           (
