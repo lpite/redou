@@ -1,22 +1,10 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import { FeedItem } from "@/types/FeedItem";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "node-html-parser";
 
-type FeedItem = {
-  title: string;
-  author: string;
-  date: string;
-  views: string;
-  text: string;
-  commentsQuantity: string;
-  topic: string;
-  tags: string[];
-};
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+
+export default async function (_: NextApiRequest, res: NextApiResponse) {
   const feedItems: FeedItem[] = [];
   const text = await fetch("https://dou.ua/lenta/").then((t) => t.text());
   const html = parse(text);
