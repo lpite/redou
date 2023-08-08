@@ -2,8 +2,6 @@ import { FeedItem } from "@/types/FeedItem";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "node-html-parser";
 
-
-
 export default async function (_: NextApiRequest, res: NextApiResponse) {
   const feedItems: FeedItem[] = [];
   const text = await fetch("https://dou.ua/lenta/").then((t) => t.text());
@@ -19,7 +17,8 @@ export default async function (_: NextApiRequest, res: NextApiResponse) {
     const date = feedItem.querySelector("time")?.textContent.trim() || "";
     const views =
       feedItem.querySelector(".pageviews")?.textContent.trim() || "";
-    const text = feedItem.querySelector(".b-typo")?.textContent.trim() || "";
+    const text =
+      feedItem.querySelector(".b-typo")?.firstChild.text.trim() || "";
     const commentsQuantity =
       feedItem.querySelector(".g-comments-round")?.textContent.trim() || "0";
     const topicAndTags =
